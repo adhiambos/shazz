@@ -1,26 +1,20 @@
-function speedDetector(speed){
-    const speedLimit = 70;
-    const aboveSpeed = 5;
-    const finePoints = 1;
+//SPEED DETECTOR CHALLENGE
 
-    if (speed < speedLimit) {
-        console.log("Ok")
-        return 0;}
+function speedRules(){
 
-        else {
-            const excessDistance = speed - speedLimit;
-            const demeritPoints = Math.floor(excessDistance/aboveSpeed);
-            console.log("Points "+ demeritPoints);
+let carSpeed = prompt("Car Speed:"); /*prompt the user to input car speed
+//car speed limit 70km/h*/
+let speedLimit = 70;
+//extra speed per demerit point
+let kmPerS = 5;
+//calculate demerit points 
+let demeritPoints = (carSpeed - speedLimit) / kmPerS;
 
-            if (demeritPoints >= 12){
-                console.log("License suspended");
-            }
-            return demeritPoints;
-        }
-        const speed = parseFloat(prompt("Enter speed in km/hr"));
-
-        if(!isNaN(speed)) {
-            speedDetector(speed);
-        }
-        else {console.log("Invalid Input!")}
+if (carSpeed <= speedLimit) {
+  alert("OK!");
+} else if (demeritPoints > 12) {
+  alert("License suspended");
+} else {
+  alert("Points :" + demeritPoints);
+}
 }
