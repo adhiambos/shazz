@@ -3,7 +3,6 @@
 
 #### Date, 2024/03/25
 
-#### By *Sharon Adhiambo Odhiambo*
 
 ## Description
 Student Grade Calculator
@@ -30,6 +29,16 @@ Determines NHIF deductions according to the gross salary range.
 Computes NSSF deductions based on the employee contribution rate.
 Provides the net salary after deducting PAYE, NHIF, and NSSF deductions.
 
+### Project Setup
+
+To use the programs, make sure you have node installed, open up your terminal then use the command **node** followed by the file name for the program you wish to use eg.
+To use the net salary calculator, open the directory where the program is using the terminal and run the following command:
+
+**$node file3.js** 
+
+You will be prompted to give an input, press enter after giving the input and the program will run and return the result.
+
+
 ## Installation
 You use git clone to be able to download the documents in the GitHub
 
@@ -42,8 +51,6 @@ Git clone https://github.com/adhiambos/shazz
 
 ```
 
-# Live Link
-[Git](gh-pages link)
 
 ## Technologies used
 Github
@@ -52,10 +59,10 @@ Javascript
 ## Support and contact details
 github.com/adhiambos
 
+## Author
+Sharon Adhiambo Odhiambo
 ### License
-The content of this site is licensed under the MIT license
-Copyright (c) 2018.
-
+License: Open source license
 
 
 
