@@ -1,23 +1,44 @@
-// STUDENT GRADE GENERATOR
-function mySchool(){
+//to enable prompts
+const readline = require("readline");
+const r1 =readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+})
 
-let studentGrade = prompt ("Enter your marks:"); //prompt user to enter marks
+function studentMarks (Grade){
+    if(Grade>79){
+        return "A";
+    }
+    else if (Grade>=60){
+        return "B";
+    }
+    else if (Grade>=49){
+        return "C";
+    }
+    else if (Grade>=40){
+        return "D";
+    }
+    else if (Grade<40){
+        return "E";
+    }
+    console.log(Grade)
+}
+function myMarks() {
+    let input = prompt("Enter mark (0-100):");
+    let mark = parseFloat(input)
+    if (Grade>=0 && Grade<=100){
+        let Grade = StudentMarks(Grade);
+        console.log("The student's grade is" + Grade);
+    }
+    else{
+        console.log("Wrong Input")
+    }
+}
 
-//Range of student grades against student marks
-if (studentGrade > 100 || studentGrade < 0) {
-  alert("Invalid Marks");
-}
-if (studentGrade >= 79 && studentGrade <= 100) {
-  alert("You scored A ");
-} else if (studentGrade >= 60 && studentGrade < 79) {
-  alert("You Scored B");
-} else if (studentGrade >= 49 && studentGrade <= 59) {
-  alert("You Scored C");
-} else if (studentGrade >= 40 && studentGrade < 49) {
-  alert("You Scored D");
-} else if (studentGrade >= 0 && studentGrade < 40) {
-  alert("You Scored E");
-} else {
-  alert("ERROR!");
-}
-}
+
+r1.question("Enter student marks between 0 and 100",(Grade)=> {
+    const finalGrade = studentMarks(parseInt(Grade));
+    console.log(`your grade is:${finalGrade}`);
+    r1.close();
+});
+  
