@@ -1,20 +1,44 @@
-//SPEED DETECTOR CHALLENGE
+//to enable prompts
+const readline = require("readline");
+const r1 =readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+})
 
-function speedRules(){
+//SPEED DETECTOR
 
-let carSpeed = prompt("Car Speed:"); /*prompt the user to input car speed
-//car speed limit 70km/h*/
-let speedLimit = 70;
-//extra speed per demerit point
-let kmPerS = 5;
-//calculate demerit points 
-let demeritPoints = (carSpeed - speedLimit) / kmPerS;
+function speedDetector(speed){
 
-if (carSpeed <= speedLimit) {
+    const speedLimit = 70;
+
+    const kmPerS = 5;
+
+    const aboveSpeed = speed -speedLimit
+
+    const demeritPoints = aboveSpeed/kmPerS
+
+    if (aboveSpeed<0) {
   alert("OK!");
-} else if (demeritPoints > 12) {
+} 
+    else if (demeritPoints > 12) {
   alert("License suspended");
-} else {
-  alert("Points :" + demeritPoints);
+} 
+return demeritPoints + " demerit(s)"
+
 }
-}
+
+r1.question("Enter car speed(km/h)",(speed)=> {
+    const dPoints = speedDetector(parseInt(speed));
+    console.log(`your demerit points:${dPoints}`);
+    r1.close();
+});
+
+
+
+
+
+
+
+
+
+
