@@ -1,18 +1,20 @@
-//NET SALARY CALCULATOR
+//to enable prompts
+const readline = require("readline");
+const r1 =readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+})
 
-function individualSalary(){
-
+function myNetSalary(){
 //Prompt the user for input for basic salary and benefits
-
 let basicSalary = parseFloat(prompt("Enter your monthly Basic Salary:"));
 let benefits = parseFloat(prompt("Enter your monthly  total Benefits:"));
 
+//calculating gross salary
+let grossSalary = basicSalary + benefits;
 
-let grossSalary = basicSalary + benefits;//calculating gross salary
+//calculating payee
 
-//function for calculating payee
-
-function calculatePayee(grossSalary) {
   if (grossSalary <= 24000) {
     return grossSalary * 0.01;
   } else if (grossSalary >= 24001 && grossSalary <= 32333) {
@@ -20,13 +22,10 @@ function calculatePayee(grossSalary) {
   } else {
     return grossSalary * 0.3;
   }
-}
-let payee = calculatePayee(grossSalary);
-console.log("Monthly Payee : " + payee.toFixed(2) + " Ksh");
+  console.log(grossSalary)
 
-//function for calculating nhif deduction
+//calculating nhif deduction
 
-function nhifDeduction(grossSalary) {
   if (grossSalary <= 5999) {
     return 150;
   } else if (grossSalary >= 6000 && grossSalary <= 7999) {
@@ -62,13 +61,10 @@ function nhifDeduction(grossSalary) {
   } else {
     return 1700;
   }
-}
-let nhif = nhifDeduction(grossSalary);
-console.log("NHIF Deduction: " + nhif + " Ksh");
+console.log(nhif)
 
-//function for calculating nssf deduction
+//calculating nssf deduction
 
-function nssfDeduction(grossSalary) {
   if (grossSalary <= 6000) {
     return grossSalary * 0.06; //6% deduction on gross salary
   } else if (grossSalary > 6000 && grossSalary <= 18000) {
@@ -76,13 +72,16 @@ function nssfDeduction(grossSalary) {
   } else {
     return 18000 * 0.06; //6% deduction on the maximum contribution limit
   }
-}
-let nssf = nssfDeduction(grossSalary);
-console.log("NSSF Deduction: " + nssf.toFixed(2) + " Ksh");
+console.log(nssf)
 
 //calculating net salary
-
 let netSalary = grossSalary - (payee + nhif + nssf);
 
-alert("Net Salary:" + netSalary.toFixed(2) + "Ksh");
+alert("Net Salary:" + netSalary.toFixed(2));
 }
+
+r1.question("Enter net salary",()=> {
+    const mySalary = myNetSalary(parseInt());
+    console.log(`your net salary is:${mySalary}`);
+    r1.close();
+});
